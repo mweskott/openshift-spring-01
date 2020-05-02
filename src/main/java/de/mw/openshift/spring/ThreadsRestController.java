@@ -32,7 +32,9 @@ public class ThreadsRestController {
 	}	
 	
 	private Thread createThread() {
-		return new Thread(new LoopingThread(threads.size()));
+		Thread thread = new Thread(new LoopingThread(threads.size()));
+		thread.start();
+		return thread;
 	}
 	
 }

@@ -1,10 +1,12 @@
 package de.mw.openshift.spring;
 
-import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-@Slf4j
 public class LoopingThread implements Runnable {
 	int id;
+
+	private static final Logger log = LoggerFactory.getLogger(LoopingThread.class);
 	
 	public LoopingThread(int id) {
 		this.id = id;
@@ -18,7 +20,8 @@ public class LoopingThread implements Runnable {
 				Thread.sleep(10000);
 			}
 		} catch (Exception ex) {
-			log.warn("exiting thread {}.", id);
+			log.warn("interrupting thread {}.", id, ex);
 		}
+		log.info("exiting thread {}.", id);
 	}
 }
