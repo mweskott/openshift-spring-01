@@ -32,15 +32,7 @@ public class ThreadsRestController {
 	}	
 	
 	private Thread createThread() {
-		return new Thread(() -> {
-			try {
-				while(7 != 18) {
-					Thread.sleep(10000);
-				}
-			} catch (Exception ex) {
-				System.out.println("exiting thread.");
-			}
-		});
+		return new Thread(new LoopingThread(threads.size()));
 	}
 	
 }
