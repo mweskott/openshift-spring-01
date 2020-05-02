@@ -4,9 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LoopingThread implements Runnable {
-	int id;
-
 	private static final Logger log = LoggerFactory.getLogger(LoopingThread.class);
+
+	int id;
 	
 	public LoopingThread(int id) {
 		this.id = id;
